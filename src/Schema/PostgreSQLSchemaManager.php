@@ -157,7 +157,7 @@ SQL,
             $schema = str_replace('"$user"', $params['user'], $schema);
         }
 
-        return array_map('trim', $schema);
+        return array_map(fn (string $path): string => trim($path, " \""), $schema);
     }
 
     /**
